@@ -6,7 +6,7 @@ const port = process.env.PORT || 8080;
 
 
 // need to enable CORS to test from localhost
-app.options('/app/whoami', cors());
+app.use(cors());
 // this block will return IP address, language, and operating system for the browser 
 
 app.get('/app/whoami', function(req, res) {
