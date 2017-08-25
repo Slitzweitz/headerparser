@@ -1,10 +1,12 @@
 // User Story: I can get the IP address, language and operating system for my browser.
 const express = require('express');
+var cors = require('cors');
 const app = express();
 const port = process.env.PORT || 8080;
 
 
-
+// need to enable CORS to test from localhost
+app.options('/app/whoami', cors());
 // this block will return IP address, language, and operating system for the browser 
 
 app.get('/app/whoami', function(req, res) {
