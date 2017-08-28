@@ -6,14 +6,14 @@ const port = process.env.PORT || 8080;
 
 
 // need to enable CORS to test from localhost
-// app.use(cors());
+app.use(cors());
 // this block will return IP address, language, and operating system for the browser 
 
 app.get('/', function(req, res) {
     res.send({'see': 'go to /app/whoami to see your IP, language, and OS'});
 });
 
-app.get('/app/whoami', cors(), function(req, res) {
+app.get('/app/whoami', function(req, res) {
     var language = req.headers['accept-language'].split(',');
     var osStart = req.headers['user-agent'].indexOf('(') + 1;
     var osEnd = req.headers['user-agent'].indexOf(')');
