@@ -9,6 +9,10 @@ const port = process.env.PORT || 8080;
 // app.use(cors());
 // this block will return IP address, language, and operating system for the browser 
 
+app.get('/', function(req, res) {
+    res.send({'see': 'go to /app/whoami to see your IP, language, and OS'});
+});
+
 app.get('/app/whoami', cors(), function(req, res) {
     var language = req.headers['accept-language'].split(',');
     var osStart = req.headers['user-agent'].indexOf('(') + 1;
